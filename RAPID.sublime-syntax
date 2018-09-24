@@ -1,0 +1,194 @@
+%YAML 1.2
+---
+name: RAPID
+file_extensions: 
+  - mod
+  - sys
+scope: source
+
+#Variables for easier setup of scope define
+variables:
+
+#Keword
+  RAPID_Control: 'AND|Break|CASE|DO|ELSE|ELSEIF|ENDFOR|ENDIF|ENDWHILE|EXIT|FOR|FROM|GOTO|IF|NOT|OR|RETURN|THEN|TO|WHILE|XOR'
+  RAPID_Constant: 'FALSE|TRUE|WAIT_MAX'
+  RAPID_Error1: 'ERRNO|ERR_ACC_TOO_LOW|ERR_ACTIV_PROF|ERR_ALIASCAM_DEF|ERR_ALIASIO_DEF|ERR_ALIASIO_TYPE|ERR_ALRDYCNT|ERR_ALRDY_MOVING|ERR_AO_LIM|ERR_ARGDUPCND|ERR_ARGNAME|ERR_ARGNOTPER|ERR_ARGNOTVAR|ERR_ARGVALERR|ERR_AXIS_ACT|ERR_AXIS_IND|ERR_AXIS_MOVING|ERR_AXIS_PAR|ERR_BUSSTATE|ERR_BWDLIMIT|ERR_CALC_NEG|ERR_CALC_OVERFLOW|ERR_CALC_DIVZERO|ERR_CALLPROC|ERR_CAM_BUSY'
+  RAPID_Error2: 'ERR_CAM_COM_TIMEOUT|ERR_CAM_GET_MISMATCH|ERR_CAM_MAXTIME|ERR_CAM_NO_MORE_DATA|ERR_CAM_NO_PROGMODE|ERR_CAM_NO_RUNMODE|ERR_CAM_SET_MISMATCH|ERR_CFG_INTERNAL|ERR_CFG_ILL_DOMAIN|ERR_CFG_ILLTYPE|ERR_CFG_LIMIT|ERR_CFG_NOTFND|ERR_CFG_OUTOFBOUNDS|ERR_CFG_WRITEFILE|ERR_CNTNOTVAR|ERR_CNV_NOT_ACT|ERR_CNV_CONNECT|ERR_CNV_DROPPED|ERR_COLL_STOP|ERR_CONC_MAX|ERR_COMM_INIT|ERR_DEV_MAXTIME|ERR_DIPLAG_LIM|ERR_DIVZERO|ERR_EXECPHR|ERR_FILEACC|ERR_FILEEXIST|ERR_FILEOPEN|ERR_FILNOTFND'
+  RAPID_Error3: 'ERR_FNCNORET|ERR_FRAME|ERR_GO_LIM|ERR_ILLDIM|ERR_ILLQUAT|ERR_ILLRAISE|ERR_INDCNV_ORDER|ERR_INOISSAFE|ERR_INOMAX|ERR_INT_NOTVAL|ERR_INT_MAXVAL|ERR_INVDIM|ERR_IODISABLE|ERR_IOENABLE|ERR_IOERROR|ERR_LINKREF|ERR_LOADED|ERR_LOADID_FATAL|ERR_LOADID_RETRY|ERR_LOADNO_INUSE|ERR_LOADNO_NOUSE|ERR_MODULE|ERR_MOD_NOT_LOADED|ERR_NAME_INVALID|ERR_NO_ALIASIO_DEF|ERR_NORUNUNIT|ERR_NO_SGUN|ERR_NOTARR|ERR_NOTEQDIM|ERR_NOTINTVAL|ERR_NOTPRES'
+  RAPID_Error4: 'ERR_NOTSAVED|ERR_NOT_MOVETASK|ERR_NUM_LIMIT|ERR_ORIENT_VALUE|ERR_OUTOFBND|ERR_OVERFLOW|ERR_OUTSIDE_REACH|ERR_PATH|ERR_PATHDIST|ERR_PATH_STOP|ERR_PERSSUPSEARCH|ERR_PID_MOVESTOP|ERR_PID_RAISE_PP|ERR_PRGMEMFULL|ERR_PROCSIGNAL_OFF|ERR_PROGSTOP|ERR_RANYBIN_CHK|ERR_RANYBIN_EOF|ERR_RCVDATA|ERR_REFUNKDAT|ERR_REFUNKFUN|ERR_REFUNKPRC|ERR_REFUNKTRP|ERR_RMQ_DIM|ERR_RMQ_FULL|ERR_RMQ_INVALID|ERR_RMQ_INVMSG|ERR_RMQ_MSGSIZE|ERR_RMQ_NAME|ERR_RMQ_NOMSG'
+  RAPID_Error5: 'ERR_RMQ_TIMEOUT|ERR_RMQ_VALUE|ERR_ROBLIMIT|ERR_SC_WRITE|ERR_SGUN_ESTOP|ERR_SGUN_MOTOFF|ERR_SGUN_NEGVAL|ERR_SGUN_NOTACT|ERR_SGUN_NOTINIT|ERR_SGUN_NOTOPEN|ERR_SGUN_NOTSYNC|ERR_SIGSUPSEARCH|ERR_SIG_NOT_VALID|ERR_SOCK_ADDR_INUSE|ERR_SOCK_CLOSED|ERR_SOCK_TIMEOUT|ERR_SPEED_REFRESH_LIM|ERR_SPEEDLIM_VALUE|ERR_STARTMOVE|ERR_STORE_PROF|ERR_STRTOOLNG|ERR_SYM_ACCESS|ERR_SYMBOL_TYPE|ERR_SYNCMOVEOFF|ERR_SYNCMOVEON|ERR_SYNTAX|ERR_TASKNAME'
+  RAPID_Error6: 'ERR_TP_DIBREAK|ERR_TP_DOBREAK|ERR_TP_MAXTIME|ERR_TP_NO_CLIENT|ERR_TRUSTLEVEL|ERR_TXTNOEXIST|ERR_UDPUC_COMM|ERR_UI_INITVALUE|ERR_UI_MAXMIN|ERR_UI_NOTINT|ERR_UISHOW_FATAL|ERR_UISHOW_FULL|ERR_UNIT_PAR|ERR_UNKINO|ERR_UNKPROC|ERR_UNLOAD|ERR_USE_PROF|ERR_WAITSYNCTASK|ERR_WAIT_MAXTIME|ERR_WHLSEARCH|ERR_WOBJ_MOVING'
+  RAPID_ErrorDomain: 'COMMON_ERR|OP_STATE|SYSTEM_ERR|HARDWARE_ERR|PROGRAM_ERR|MOTION_ERR|OPERATOR_ERR|IO_COM_ERR|USER_DEF_ERR|SAFETY_ERR|PROCESS_ERR|CFG_ERR'
+  RAPID_ErrorString: 'ERRSTR_EMPTY|ERRSTR_UNUSED|ERRSTR_TASK|ERRSTR_CONTEXT'
+  RAPID_ErrorType: 'TYPE_ALL|TYPE_STATE|TYPE_WARN|TYPE_ERR'
+  RAPID_EventType: 'EVENT_NONE|EVENT_POWERON|EVENT_START|EVENT_STOP|EVENT_QSTOP|EVENT_RESTART|EVENT_RESET|EVENT_STEP'
+  RAPID_ExecLevel: 'LEVEL_NORMAL|LEVEL_TRAP|LEVEL_SERVICE'
+  RAPID_Interrupt: 'INTNO'
+  RAPID_SymbolicConstant1: 'RUN_UNDEF|RUN_CONT_CYCLE|RUN_INSTR_FWD|RUN_INSTR_BWD|RUN_SIM|RUN_STEP_MOVE|OP_UNDEF|OP_AUTO|OP_MAN_PROG|OP_MAN_TEST'
+  RAPID_SymbolicConstant2: 'TSP_STATUS_NOT_NORMAL_TASK|TSP_STATUS_DEACT|TSP_STATUS_DEACT_SERV_ROUT|TSP_STATUS_ACT'
+  RAPID_Operator: '\=|\+|\-|\*|\/|\;|\:|\>|\<'
+  RAPID_Structure: 'ENDFUNC|ENDMODULE|ENDPROC|FUNC|MODULE|PROC'
+  RAPID_Other: 'ALIAS|BACKWARD|CONNECT|DEFAULT|DIV|ENDRECORD|ENDTEST|ENDTRAP|ERROR|INOUT|MOD|NOSTEPIN|NOVIEW|RAISE|READONLY|RECORD|RETRY|STEP|SYSMODULE|TEST|TRAP|TRYNEXT|VIEWONLY|WITH'
+
+#Punctuation
+  punctuation_section: '\(|\)|\[|\]|\{|\}'
+
+#Data Types
+  storage_basic: 'bool|byte|dnum|num|pos|string'
+  storage_dataset: 'confdata|extjoint|jointtarget|motsetdata|o_jointtarget|o_robtarget|pose|progdisp|robjoint|robtarget|shapedata|speeddata|stoppointdata|tooldata|trapdata|triggdata|wobjdata|wzstationary|wztemporary|zonedata'
+  storage_signal: 'aiotrigg|dionum|iodev|signalai|signalao|signaldi|signaldo|signalgi|signalgo|testsignal'
+  storage_other: 'btnres|busstate|buttondata|cameradev|cameratarget|capdata|caplatrackdata|capspeeddata|captrackdata|capweavedata|cfgdomain|clock|corrdescr|datapos|dir|egmframetype|egmident|egm_minmax|egmstate|egmstopmode|errdomain|errnum|errstr|errtype|event_type|exec_level|flypointdata|handler_type|icondata|identno|intnum|iounit_state|listitem|loaddata|loadidnum|loadsession|mecunit|opcalc|opnum|orient|paridnum|paridvalidnum|pathrecid|processtimes|rawbytes|restartblkdata|restartdata|rmqheader|rmqmessage|rmqslot|sensor|sensorstate|sensorvardata|signalorigin|socketdev|socketstatus|stringdig|supervtimeouts|switch|symnum|syncident|System data|taskid|tasks|tpnum|triggios|triggiosdnum|triggmode|triggstrgo|tsp_status|tunetype|uishownum|weavestartdata'
+  storage_modifier: 'CONST|LOCAL|PERS|TASK|VAR'
+
+#Functions
+  #Listed as "Functions" in RAPID manual
+  RAPID_Functions1_50: 'Abs|AbsDnum|ACos|ACosDnum|AInput|AOutput|ArgName|ASin|ASinDnum|ATan|ATanDnum|ATan2|ATan2Dnum|BitAnd|BitAndDnum|BitCheck|BitCheckDnum|BitLSh|BitLShDnum|BitNeg|BitNegDnum|BitOr|BitOrDnum|BitRSh|BitRShDnum|BitXOr|BitXOrDnum|ByteToStr|CalcJointT|CalcRobT|CalcRotAxFrameZ|CalcRotAxisFrame|CamGetExposure|CamGetLoadedJob|CamGetName|CamNumberOfResults|CapGetFailSigs|CDate|CJointT|ClkRead|CorrRead|Cos|CosDnum|CPos|CRobT|CSpeedOverride|CTime|CTool|CWObj'
+  RAPID_Functions51_100: 'DecToHex|DefAccFrame|DefDFrame|DefFrame|Dim|DInput|Distance|DnumToNum|DnumToStr|DotProd|DOutput|EGMGetState|EulerZYX|EventType|ExecHandler|ExecLevel|Exp|FileSize|FileTimeDnum|FSSize|GetAxisDistance|GetAxisMoveTime|GetMaxNumberOfCyclicBool|GetMecUnitName|GetModalPayLoadMode|GetMotorTorque|GetNextCyclicBool|GetNextMechUnit|GetNextSym|GetNumberOfCyclicBool|GetServiceInfo|GetSignalOrigin|GetSysInfo|GetTaskName|GetTime|GetTSPStatus|GInput|GInputDnum|GOutput|GOutputDnum|HexToDec|IndInpos|IndSpeed|IOUnitState|IsBrakeCheckActive|IsCyclicBool|IsFile|IsLeadThrough|IsMechUnitActive'
+  RAPID_Functions101_150: 'IsPers|IsStopMoveAct|IsStopStateEvent|IsSyncMoveOn|IsSysId|IsVar|MaxRobSpeed|MirPos|ModExist|ModTimeDnum|MotionPlannerNo|NonMotionMode|NOrient|NumToDnum|NumToStr|Offs|OpMode|OrientZYX|ORobT|ParIdPosValid|ParIdRobValid|PathLevel|PathRecValidBwd|PathRecValidFwd|PFRestart|PoseInv|PoseMult|PoseVect|Pow|PowDnum|PPMovedInManMode|Present|ProgMemFree|PrxGetMaxRecordpos|RawBytesLen|ReadBin|ReadDir|ReadMotor|ReadNum|ReadStr|ReadStrBin|ReadVar|RelTool|RemainingRetries|RMQGetSlotName|RobName|RobOS'
+  RAPID_Functions151_209: 'Round|RoundDnum|RunMode|SafetyControllerGetChecksum|SafetyControllerGetOpModePinCode|SafetyControllerGetSWVersion|SafetyControllerGetUserChecksum|Sin|SinDnum|SocketGetStatus|SocketPeek|Sqrt|SqrtDnum|STCalcForce|STCalcTorque|STIsCalib|STIsClosed|STIsIndGun|STIsOpen|StrDigCalc|StrDigCmp|StrFind|StrLen|StrMap|StrMatch|StrMemb|StrOrder|StrPart|StrToByte|StrToVal|Tan|TanDnum|TaskRunMec|TaskRunRob|TasksInSync|TaskIsActive|TaskIsExecuting|TestAndSet|TestDI|TestSignRead|TextGet|TextTabFreeToUse|TextTabGet|TriggDataValid|Trunc|TruncDnum|Type|UIAlphaEntry|UIClientExist|UIDnumEntry|UIDnumTune|UIListView|UIMessageBox|UINumEntry|UINumTune|ValidIO|ValToStr|VectMagn'
+
+
+
+  variable_function: 'Abs|ACos|AOutput|ASin|ATan|ATan2|ByteToStr|CalcJointT|CalcRobT|CDate|CJointT|ClkRead|Cos|CPos|CRobT|CTime|CTool|CWObj|DefDFrame|DefFrame|Dim|Distance|DotProd|DOutput|EulerZYX|Exp|FileTime|GOutput|GetTime|IsPers|IsVar|MaxRobSpeed|MirPos|ModTime|NOrient|NumToStr|Offs|OpMode|OrientZYX|ORobT|PoseInv|PoseMult|PoseVect|Pow|Present|ReadBin|ReadMotor|ReadNum|ReadStr|ReadStrBin|RelTool|Round|RunMode|Sin|Sqrt|StrFind|StrLen|StrMap|StrMatch|StrMemb|StrOrder|StrPart|StrToByte|StrToVal|Tan|TestAndSet|TestDI|Trunc|TestSignRead|ValToStr|VectMagn'
+
+#Instructions
+  #Listed as "Instructions" in RAPID manual
+  RAPID_Instructions1_50: 'AccSet|ActEventBuffer|ActUnit|Add|AliasCamera|AliasIO|AliasIOReset|BitClear|BitSet|BookErrNo|CallByVar|CamFlush|CamGetParameter|CamGetResult|CamLoadJob|CamReqImage|CamSetExposure|CamSetParameter|CamSetProgramMode|CamSetRunMode|CamStartLoadJob|CamWaitLoadJob|CancelLoad|CapAPTrSetup|CapC|CapCondSetDO|CapEquiDist|CapL|CapLATrSetup|CapNoProcess|CapRefresh|CapWeaveSync|CheckProgRef|CirPathMode|Clear|ClearIOBuff|ClearPath|ClearRawBytes|ClkReset|ClkStart|ClkStop|Close|CloseDir|Comment|ConfJ|ConfL|ContactL'
+  RAPID_Instructions51_100: 'CopyFile|CopyRawBytes|CorrClear|CorrCon|CorrDiscon|CorrWrite|DeactEventBuffer|DeactUnit|Decr|DropSensor|DropWObj|EGMActJoint|EGMActMove|EGMActPose|EGMGetId|EGMMoveC|EGMMoveL|EGMReset|EGMRunJoint|EGMRunPose|EGMSetupAI|EGMSetupAO|EGMSetupGI|EGMSetupLTAPP|EGMSetupUC|EGMStop|EOffsOff|EOffsOn|EOffsSet|EraseModule|ErrLog|ErrRaise|ErrWrite|ExitCycle|FitCircle|FricIdInit|FricIdEvaluate|FricIdSetFricLevels|GetDataVal|GetJointData|GetSysData|GetTrapData|GripLoad|HollowWristReset|ICap|IDelete|IDisable'
+  RAPID_Instructions101_150: 'IEnable|IError|Incr|IndAMove|IndCMove|IndDMove|IndReset|IndRMove|InitSuperv|InvertDO|IOBusStart|IOBusState|IODisable|IOEnable|IPathPos|IPers|IRMQMessage|ISignalAI|ISignalAO|ISignalDI|ISignalDO|ISignalGI|ISignalGO|ISleep|ITimer|IVarValue|IWatch|Label|Load|LoadId|MakeDir|ManLoadIdProc|MatrixSolve|MatrixSolveQR|MatrixSVD|MechUnitLoad|MotionProcessModeSet|MotionSup|MoveAbsJ|MoveC|MoveCAO|MoveCDO|MoveCGO|MoveCSync|MoveExtJ|MoveJ|MoveJAO|MoveJDO|MoveJGO'
+  RAPID_Instructions151_200: 'MoveJSync|MoveL|MoveLAO|MoveLDO|MoveLGO|MoveLSync|MToolRotCalib|MToolTCPCalib|Open|OpenDir|PackDNHeader|PackRawBytes|PathAccLim|PathRecMoveBwd|PathRecMoveFwd|PathRecStart|PathRecStop|PathResol|PDispOff|PDispOn|PDispSet|ProcCall|ProcerrRecovery|PrxActivAndStoreRecord|PrxActivRecord|PrxDbgStoreRecord|PrxDeactRecord|PrxResetPos|PrxResetRecords|PrxSetPosOffset|PrxSetRecordSampleTime|PrxSetSyncalarm|PrxStartRecord|PrxStopRecord|PrxStoreRecord|PrxUseFileRecord|PulseDO|RaiseToUser|ReadAnyBin|ReadBlock|ReadCfgData|ReadErrData|ReadRawBytes|ReadVarArr|RemoveAllCyclicBool|RemoveCyclicBool|RemoveDir|RemoveFile|RemoveSuperv'
+  RAPID_Instructions201_250: 'RenameFile|Reset|ResetAxisDistance|ResetAxisMoveTime|ResetPPMoved|ResetRetryCount|RestoPath|Rewind|RMQEmptyQueue|RMQFindSlot|RMQGetMessage|RMQGetMsgData|RMQGetMsgHeader|RMQReadWait|RMQSendMessage|RMQSendWait|SafetyControllerSyncRequest|Save|SaveCfgData|SCWrite|SearchC|SearchExtJ|SearchL|SenDevice|Set|SetAllDataVal|SetAO|SetDataSearch|SetDataVal|SetDO|SetGO|SetLeadThrough|SetSysData|SetupCyclicBool|SetupSuperv|SiConnect|SiClose|SiGetCyclic|SingArea|SiSetCyclic|SkipWarn|SocketAccept|SocketBind|SocketClose|SocketConnect|SocketCreate|SocketListen|SocketReceive'
+  RAPID_Instructions251_300: 'SocketReceiveFrom|SocketSend|SocketSendTo|SoftAct|SoftDeact|SpeedLimAxis|SpeedLimCheckPoint|SpeedRefresh|SpyStart|SpyStop|StartLoad|StartMove|StartMoveRetry|STCalib|STClose|StepBwdPath|STIndGun|STIndGunReset|SToolRotCalib|SToolTCPCalib|Stop|STOpen|StopMove|StopMoveReset|StorePath|STTune|STTuneReset|SupSyncSensorOff|SupSyncSensorOn|SyncMoveOff|SyncMoveOn|SyncMoveResume|SyncMoveSuspend|SyncMoveUndo|SyncToSensor|SystemStopAction|TestSignDefine|TestSignReset|TextTabInstall|TPErase|TPReadDnum|TPReadFK|TPReadNum|TPShow|TPWrite|TriggC|TriggCheckIO|TriggDataCopy|TriggDataReset'
+  RAPID_Instructions301_357: 'TriggEquip|TriggInt|TriggIO|TriggJ|TriggL|TriggJIOs|TriggLIOs|TriggRampAO|TriggSpeed|TriggStopProc|TryInt|TuneReset|TuneServo|UIMsgBox|UIMsgWrite|UIMsgWriteAbort|UIShow|UnLoad|UnpackRawBytes|VelSet|WaitAI|WaitAO|WaitDI|WaitDO|WaitGI|WaitGO|WaitLoad|WaitRob|WaitSensor|WaitSyncTask|WaitTestAndSet|WaitTime|WaitUntil|WaitWObj|WarmStart|WorldAccLim|Write|WriteAnyBin|WriteBin|WriteBlock|WriteCfgData|WriteRawBytes|WriteStrBin|WriteVar|WriteVarArr|WZBoxDef|WZCylDef|WZDisable|WZDOSet|WZEnable|WZFree|WZHomeJointDef|WZLimJointDef|WZLimSup|WZSphDef'
+
+contexts:
+  main:
+#Single Line Comment
+    - match: '!'
+      scope: punctuation.definition.comment
+      push:
+        - meta_scope: comment.line
+        - match: $\n?
+          pop: true
+
+#Header Comment
+    - match: '%%%'
+      scope: markup.heading
+      push:
+        - meta_scope: markup.heading
+        - match: '%%%'
+          pop: true
+
+#Punctuation
+    - match: ({{punctuation_section}})
+      scope: punctuation.section
+
+#String
+    - match: '"'
+      scope: punctuation.definition.string
+      push:
+        - meta_scope: string.quoted.double
+        - match: '"'
+          pop: true
+
+#Keywords
+  #Controls
+    - match: \b({{RAPID_Control}})\b
+      scope: keyword.control
+  #Constants
+    - match: \b({{RAPID_Constant}})\b
+      scope: constant.language 
+  #Errors
+    - match: \b({{RAPID_Error1}})\b
+      scope: constant.language
+    - match: \b({{RAPID_Error2}})\b
+      scope: constant.language
+    - match: \b({{RAPID_Error3}})\b
+      scope: constant.language
+    - match: \b({{RAPID_Error4}})\b
+      scope: constant.language
+    - match: \b({{RAPID_Error5}})\b
+      scope: constant.language
+    - match: \b({{RAPID_Error6}})\b
+      scope: constant.language
+    - match: \b({{RAPID_ErrorDomain}})\b
+      scope: constant.language
+    - match: \b({{RAPID_ErrorString}})\b
+      scope: constant.language
+    - match: \b({{RAPID_ErrorType}})\b
+      scope: constant.language
+  #Events
+    - match: \b({{RAPID_EventType}})\b
+      scope: constant.language
+  #Exec Level
+    - match: \b({{RAPID_ExecLevel}})\b
+      scope: constant.language
+  #Interrupts
+    - match: \b({{RAPID_Interrupt}})\b
+      scope: constant.language
+  #Symbolic Constants
+    - match: \b({{RAPID_SymbolicConstant1}})\b
+      scope: constant.language
+    - match: \b({{RAPID_SymbolicConstant2}})\b
+      scope: constant.language
+  #Operators
+    - match: ({{RAPID_Operator}})
+      scope: keyword.operator
+  #Structure
+    - match: \b({{RAPID_Structure}})\b
+      scope: constant.language
+  #Other
+    - match: \b({{RAPID_Other}})\b
+      scope: keyword.other
+
+#Data Types
+  #Basic
+    - match: \b({{storage_basic}})\b
+      scope: storage.type
+  #Datasets
+    - match: \b({{storage_dataset}})\b
+      scope: storage.type
+  #Signals
+    - match: \b({{storage_signal}})\b
+      scope: storage.type
+  #Other
+    - match: \b({{storage_other}})\b
+      scope: storage.type
+  #Modifiers
+    - match: \b({{storage_modifier}})\b
+      scope: storage.modifier
+
+#Functions
+    - match: \b({{RAPID_Functions1_50}})\b
+      scope: entity.name
+
+    - match: \b({{RAPID_Functions51_100}})\b
+      scope: entity.name
+
+    - match: \b({{RAPID_Functions101_150}})\b
+      scope: entity.name
+
+    - match: \b({{RAPID_Functions151_209}})\b
+      scope: entity.name
+
+#Instructions
+    - match: \b({{RAPID_Instructions1_50}})\b
+      scope: variable.parameter
+
+    - match: \b({{RAPID_Instructions51_100}})\b
+      scope: variable.parameter
+
+    - match: \b({{RAPID_Instructions101_150}})\b
+      scope: variable.parameter
+
+    - match: \b({{RAPID_Instructions151_200}})\b
+      scope: variable.parameter
+
+    - match: \b({{RAPID_Instructions201_250}})\b
+      scope: variable.parameter
+
+    - match: \b({{RAPID_Instructions251_300}})\b
+      scope: variable.parameter
+
+    - match: \b({{RAPID_Instructions301_357}})\b
+      scope: variable.parameter
