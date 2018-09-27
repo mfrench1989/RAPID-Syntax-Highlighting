@@ -9,11 +9,36 @@ scope: source
 #Variables for easier setup of scope define
 variables:
 
+#Punctuation
+  punctuation_section: '\(|\)|\[|\]|\{|\}'
+
 #Keword
   RAPID_Control: 'AND|Break|CASE|DO|ELSE|ELSEIF|ENDFOR|ENDIF|ENDWHILE|EXIT|FOR|FROM|GOTO|IF|NOT|OR|RETURN|THEN|TO|WHILE|XOR'
   RAPID_Operator: '\=|\+|\-|\*|\/|\;|\:|\>|\<'
   RAPID_Structure: 'ENDFUNC|ENDMODULE|ENDPROC|FUNC|MODULE|PROC'
   RAPID_Other: 'ALIAS|BACKWARD|CONNECT|DEFAULT|DIV|ENDRECORD|ENDTEST|ENDTRAP|ERROR|INOUT|MOD|NOSTEPIN|NOVIEW|RAISE|READONLY|RECORD|RETRY|STEP|SYSMODULE|TEST|TRAP|TRYNEXT|VIEWONLY|WITH'
+
+#Instructions
+  #Listed as "Instructions" in RAPID manual
+  Instructions_1_50: 'AccSet|ActEventBuffer|ActUnit|Add|AliasCamera|AliasIO|AliasIOReset|BitClear|BitSet|BookErrNo|CallByVar|CamFlush|CamGetParameter|CamGetResult|CamLoadJob|CamReqImage|CamSetExposure|CamSetParameter|CamSetProgramMode|CamSetRunMode|CamStartLoadJob|CamWaitLoadJob|CancelLoad|CapAPTrSetup|CapC|CapCondSetDO|CapEquiDist|CapL|CapLATrSetup|CapNoProcess|CapRefresh|CapWeaveSync|CheckProgRef|CirPathMode|Clear|ClearIOBuff|ClearPath|ClearRawBytes|ClkReset|ClkStart|ClkStop|Close|CloseDir|Comment|ConfJ|ConfL|ContactL'
+  Instructions_51_100: 'CopyFile|CopyRawBytes|CorrClear|CorrCon|CorrDiscon|CorrWrite|DeactEventBuffer|DeactUnit|Decr|DropSensor|DropWObj|EGMActJoint|EGMActMove|EGMActPose|EGMGetId|EGMMoveC|EGMMoveL|EGMReset|EGMRunJoint|EGMRunPose|EGMSetupAI|EGMSetupAO|EGMSetupGI|EGMSetupLTAPP|EGMSetupUC|EGMStop|EOffsOff|EOffsOn|EOffsSet|EraseModule|ErrLog|ErrRaise|ErrWrite|ExitCycle|FitCircle|FricIdInit|FricIdEvaluate|FricIdSetFricLevels|GetDataVal|GetJointData|GetSysData|GetTrapData|GripLoad|HollowWristReset|ICap|IDelete|IDisable'
+  Instructions_101_150: 'IEnable|IError|Incr|IndAMove|IndCMove|IndDMove|IndReset|IndRMove|InitSuperv|InvertDO|IOBusStart|IOBusState|IODisable|IOEnable|IPathPos|IPers|IRMQMessage|ISignalAI|ISignalAO|ISignalDI|ISignalDO|ISignalGI|ISignalGO|ISleep|ITimer|IVarValue|IWatch|Label|Load|LoadId|MakeDir|ManLoadIdProc|MatrixSolve|MatrixSolveQR|MatrixSVD|MechUnitLoad|MotionProcessModeSet|MotionSup|MoveAbsJ|MoveC|MoveCAO|MoveCDO|MoveCGO|MoveCSync|MoveExtJ|MoveJ|MoveJAO|MoveJDO|MoveJGO'
+  Instructions_151_200: 'MoveJSync|MoveL|MoveLAO|MoveLDO|MoveLGO|MoveLSync|MToolRotCalib|MToolTCPCalib|Open|OpenDir|PackDNHeader|PackRawBytes|PathAccLim|PathRecMoveBwd|PathRecMoveFwd|PathRecStart|PathRecStop|PathResol|PDispOff|PDispOn|PDispSet|ProcCall|ProcerrRecovery|PrxActivAndStoreRecord|PrxActivRecord|PrxDbgStoreRecord|PrxDeactRecord|PrxResetPos|PrxResetRecords|PrxSetPosOffset|PrxSetRecordSampleTime|PrxSetSyncalarm|PrxStartRecord|PrxStopRecord|PrxStoreRecord|PrxUseFileRecord|PulseDO|RaiseToUser|ReadAnyBin|ReadBlock|ReadCfgData|ReadErrData|ReadRawBytes|ReadVarArr|RemoveAllCyclicBool|RemoveCyclicBool|RemoveDir|RemoveFile|RemoveSuperv'
+  Instructions_201_250: 'RenameFile|Reset|ResetAxisDistance|ResetAxisMoveTime|ResetPPMoved|ResetRetryCount|RestoPath|Rewind|RMQEmptyQueue|RMQFindSlot|RMQGetMessage|RMQGetMsgData|RMQGetMsgHeader|RMQReadWait|RMQSendMessage|RMQSendWait|SafetyControllerSyncRequest|Save|SaveCfgData|SCWrite|SearchC|SearchExtJ|SearchL|SenDevice|Set|SetAllDataVal|SetAO|SetDataSearch|SetDataVal|SetDO|SetGO|SetLeadThrough|SetSysData|SetupCyclicBool|SetupSuperv|SiConnect|SiClose|SiGetCyclic|SingArea|SiSetCyclic|SkipWarn|SocketAccept|SocketBind|SocketClose|SocketConnect|SocketCreate|SocketListen|SocketReceive'
+  Instructions_251_300: 'SocketReceiveFrom|SocketSend|SocketSendTo|SoftAct|SoftDeact|SpeedLimAxis|SpeedLimCheckPoint|SpeedRefresh|SpyStart|SpyStop|StartLoad|StartMove|StartMoveRetry|STCalib|STClose|StepBwdPath|STIndGun|STIndGunReset|SToolRotCalib|SToolTCPCalib|Stop|STOpen|StopMove|StopMoveReset|StorePath|STTune|STTuneReset|SupSyncSensorOff|SupSyncSensorOn|SyncMoveOff|SyncMoveOn|SyncMoveResume|SyncMoveSuspend|SyncMoveUndo|SyncToSensor|SystemStopAction|TestSignDefine|TestSignReset|TextTabInstall|TPErase|TPReadDnum|TPReadFK|TPReadNum|TPShow|TPWrite|TriggC|TriggCheckIO|TriggDataCopy|TriggDataReset'
+  Instructions_301_357: 'TriggEquip|TriggInt|TriggIO|TriggJ|TriggL|TriggJIOs|TriggLIOs|TriggRampAO|TriggSpeed|TriggStopProc|TryInt|TuneReset|TuneServo|UIMsgBox|UIMsgWrite|UIMsgWriteAbort|UIShow|UnLoad|UnpackRawBytes|VelSet|WaitAI|WaitAO|WaitDI|WaitDO|WaitGI|WaitGO|WaitLoad|WaitRob|WaitSensor|WaitSyncTask|WaitTestAndSet|WaitTime|WaitUntil|WaitWObj|WarmStart|WorldAccLim|Write|WriteAnyBin|WriteBin|WriteBlock|WriteCfgData|WriteRawBytes|WriteStrBin|WriteVar|WriteVarArr|WZBoxDef|WZCylDef|WZDisable|WZDOSet|WZEnable|WZFree|WZHomeJointDef|WZLimJointDef|WZLimSup|WZSphDef'
+
+#Functions
+  #Listed as "Functions" in RAPID manual
+  Functions_1_50: 'Abs|AbsDnum|ACos|ACosDnum|AInput|AOutput|ArgName|ASin|ASinDnum|ATan|ATanDnum|ATan2|ATan2Dnum|BitAnd|BitAndDnum|BitCheck|BitCheckDnum|BitLSh|BitLShDnum|BitNeg|BitNegDnum|BitOr|BitOrDnum|BitRSh|BitRShDnum|BitXOr|BitXOrDnum|ByteToStr|CalcJointT|CalcRobT|CalcRotAxFrameZ|CalcRotAxisFrame|CamGetExposure|CamGetLoadedJob|CamGetName|CamNumberOfResults|CapGetFailSigs|CDate|CJointT|ClkRead|CorrRead|Cos|CosDnum|CPos|CRobT|CSpeedOverride|CTime|CTool|CWObj'
+  Functions_51_100: 'DecToHex|DefAccFrame|DefDFrame|DefFrame|Dim|DInput|Distance|DnumToNum|DnumToStr|DotProd|DOutput|EGMGetState|EulerZYX|EventType|ExecHandler|ExecLevel|Exp|FileSize|FileTimeDnum|FSSize|GetAxisDistance|GetAxisMoveTime|GetMaxNumberOfCyclicBool|GetMecUnitName|GetModalPayLoadMode|GetMotorTorque|GetNextCyclicBool|GetNextMechUnit|GetNextSym|GetNumberOfCyclicBool|GetServiceInfo|GetSignalOrigin|GetSysInfo|GetTaskName|GetTime|GetTSPStatus|GInput|GInputDnum|GOutput|GOutputDnum|HexToDec|IndInpos|IndSpeed|IOUnitState|IsBrakeCheckActive|IsCyclicBool|IsFile|IsLeadThrough|IsMechUnitActive'
+  Functions_101_150: 'IsPers|IsStopMoveAct|IsStopStateEvent|IsSyncMoveOn|IsSysId|IsVar|MaxRobSpeed|MirPos|ModExist|ModTimeDnum|MotionPlannerNo|NonMotionMode|NOrient|NumToDnum|NumToStr|Offs|OpMode|OrientZYX|ORobT|ParIdPosValid|ParIdRobValid|PathLevel|PathRecValidBwd|PathRecValidFwd|PFRestart|PoseInv|PoseMult|PoseVect|Pow|PowDnum|PPMovedInManMode|Present|ProgMemFree|PrxGetMaxRecordpos|RawBytesLen|ReadBin|ReadDir|ReadMotor|ReadNum|ReadStr|ReadStrBin|ReadVar|RelTool|RemainingRetries|RMQGetSlotName|RobName|RobOS'
+  Functions_151_209: 'Round|RoundDnum|RunMode|SafetyControllerGetChecksum|SafetyControllerGetOpModePinCode|SafetyControllerGetSWVersion|SafetyControllerGetUserChecksum|Sin|SinDnum|SocketGetStatus|SocketPeek|Sqrt|SqrtDnum|STCalcForce|STCalcTorque|STIsCalib|STIsClosed|STIsIndGun|STIsOpen|StrDigCalc|StrDigCmp|StrFind|StrLen|StrMap|StrMatch|StrMemb|StrOrder|StrPart|StrToByte|StrToVal|Tan|TanDnum|TaskRunMec|TaskRunRob|TasksInSync|TaskIsActive|TaskIsExecuting|TestAndSet|TestDI|TestSignRead|TextGet|TextTabFreeToUse|TextTabGet|TriggDataValid|Trunc|TruncDnum|Type|UIAlphaEntry|UIClientExist|UIDnumEntry|UIDnumTune|UIListView|UIMessageBox|UINumEntry|UINumTune|ValidIO|ValToStr|VectMagn'
+
+#Data Types
+  DataType_1_50: 'aiotrigg -|ALIAS|bool|btnres|busstate|buttondata|byte|cameradev|cameratarget|capdata|caplatrackdata|capspeeddata|captrackdata|capweavedata|cfgdomain|clock|confdata|corrdescr|datapos|dionum|dir|dnum|egmframetype|egmident|egm_minmax|egmstate|egmstopmode|errdomain|errnum|errstr|errtype|event_type|exec_level|extjoint|flypointdata|handler_type|icondata|identno|intnum|iodev|iounit_state|jointtarget|listitem|loaddata|loadidnum|loadsession|mecunit|motsetdata|num|opcalc'
+  DataType_51_100: 'opnum|orient|paridnum|paridvalidnum|pathrecid|pos|pose|processtimes|progdisp|rawbytes|restartblkdata|restartdata|rmqheader|rmqmessage|rmqslot|robjoint|robtarget|sensor|sensorstate|sensorvardata|shapedata|signalorigin|signalxx|socketdev|socketstatus|speeddata|stoppointdata|string|stringdig|supervtimeouts|switch|symnum|syncident|System|taskid|tasks|testsignal|tooldata|tpnum|trapdata|triggdata|triggios|triggiosdnum|triggmode|triggstrgo|tsp_status|tunetype|uishownum|weavestartdata|wobjdata|wzstationary|wztemporary|zonedata'
+  DataType_modifier: 'CONST|LOCAL|PERS|TASK|VAR'
 
 #Predefined Constants
   CONSTANT_aiotrigg: 'AIO_ABOVE_HIGH|AIO_BELOW_HIGH|AIO_ABOVE_LOW|AIO_BELOW_LOW|AIO_BETWEEN|AIO_OUTSIDE|AIO_ALWAYS'
@@ -73,30 +98,19 @@ variables:
   CONSTANT_wobjdata: 'wobj0'
   CONSTANT_zonedata: 'fine|z0|z1|z5|z10|z15|z20|z30|z40|z50|z60|z80|z100|z150|z200'
 
-#Punctuation
-  punctuation_section: '\(|\)|\[|\]|\{|\}'
+#Optional Arguments
+#These are in reverse alphabetical order because the the highlighting works, the first one found is as far as it searches.  
+#So \TaskNo will just have \T highlighted if the list is alphabetical since it would match \T first
+  OPTIONAL1: '\\Zone|\\ZeroSpeed|\\z|\\Z|\\y|\\Y|\\XPos|\\x|\\X|\\Write|\\Wrist56|\\Wrist46|\\Wrist45|\\Wrist|\\Wrap|\\WObj|\\WarnMaxCorr|\\WaitZeroSpeed|\\W|\\VisualizeTime|\\Visualize|\\VarSym|\\ValueAtTimeout|\\Value|\\V|\\UserDef|\\UseEOffs|\\UseCurWObjPos|\\UnloadPath|\\UnloadFile|\\Unit|\\UIActiveSignal|\\UDP|\\TypeMod|\\Type|\\TuneValue|\\TriggData3|\\TriggData2|\\TriggData1|\\Track|\\Total|\\Torque|\\ToRelPos|\\ToRelNum|\\ToolOffs|\\ToolChg|\\Tool|\\ToNode|\\ToAbsPos|\\ToAbsNum'
+  OPTIONAL2: '\\TLoad|\\Title|\\TipWear|\\TipChg|\\TimeOut|\\TimeFlag|\\Time|\\Temp|\\TCPRob|\\TaskRef|\\TaskNo|\\TaskName|\\T8|\\T7|\\T6|\\T5|\\T4|\\T3|\\T2|\\T1|\\T|\\SystemName|\\SyncOrgMoveInst|\\SyncLastMoveInst|\\Sync|\\SWVersionName|\\SWVersion|\\Sup|\\StrVar|\\StrDig|\\Str5|\\Str4|\\Str3|\\Str2|\\Str1|\\Str|\\StopMove|\\StopBlock|\\Stop|\\Status|\\StatCTime|\\Stat|\\StartWeave|\\Start|\\SStop|\\SpeedAdapt|\\Speed|\\SlowTest|\\Size|\\SingleSafe'
+  OPTIONAL3: '\\Single|\\Signal|\\Short|\\sgunsynch|\\sguninit|\\Set|\\ServoSensFactor|\\ServerCorrFilter|\\SerialNo|\\SensorFreq|\\SenderId|\\SDelay|\\SceneId|\\Save|\\SampleRate|\\SafetyDelay|\\rz|\\Rz|\\ry|\\Ry|\\rx|\\Rx|\\Rot|\\RobotType|\\RMS|\\RL4|\\RL3|\\RL2|\\RetTipWear|\\RetThickness|\\RetPosAdj|\\Result|\\RestartDist|\\Reset|\\ReportAtTool|\\RemoveCR|\\RelDist|\\RegFile|\\RefPos|\\RefNum|\\Recursive|\\ReadNoOfBytes|\\Read|\\RawData|\\RampOutTime|\\RampInTime|\\Ramp|\\Quick|\\PStop|\\ProcSignal'
+  OPTIONAL4: '\\ProcID|\\PreProcessTracking|\\PrePos|\\PredTime|\\PPToMain|\\PPMoved|\\Position|\\PosFlank|\\Pose|\\PosCorrGain|\\Pos|\\PollRate|\\PLength|\\Phys|\\PersSym|\\PersBoolPassive|\\PersBoolName|\\PersBoolBreak|\\PersBool|\\PayLoad|\\PathFrame|\\PathCorr|\\ParIdType|\\Outside|\\Origin|\\Orient|\\OptTolerance|\\On|\\Old|\\OKToDeact|\\Okt|\\Offset|\\Off|\\ObjectName|\\ObjectFrame|\\Object|\\NumVar|\\NumPoints|\\Num|\\NotInSet|\\NOTEQ|\\NoStopMove|\\NoStop|\\NoStartMove|\\NoRegain|\\NoRecBytes|\\NoPulse|\\NoPrint|\\NoOfBytes|\\NoOfAxes'
+  OPTIONAL5: '\\NoNewLine|\\NoEOffs|\\NoDispl|\\NoCorr|\\NoCloseBtn|\\NoClearPath|\\NoBackoff|\\Next|\\Network|\\NegFlank|\\MsgLine5|\\MsgLine4|\\MsgLine3|\\MsgLine2|\\MsgArray|\\MoveStartTimer|\\MotPlanNo|\\ModifyTime|\\Mode|\\MirY|\\MinValue|\\Message|\\MecUnit|\\MecTaskNo|\\MecRef|\\MechUnitName|\\MechUnit|\\Mbyte|\\MaxValue|\\MaxTime|\\MaxSync|\\MaxSpeedDeviation|\\MaxPosDeviation|\\MaxIncCorr|\\MaxErr|\\MaxBlind|\\MainWeave|\\MainSpeed|\\Main|\\LT|\\LpFilter|\\LowLevel|\\LogSize|\\Logic|\\LogFile|\\LockAxis4|\\LocalSym|\\ListNo|\\Line|\\LevelRight'
+  OPTIONAL6: '\\LevelLeft|\\LATR|\\LanIp|\\KeepTargets|\\KeepSync|\\Kbyte|\\Joint|\\J7|\\J6|\\J5|\\J4|\\J3|\\J2|\\J1|\\Irpt|\\IpolServoDelay|\\IpolCorrGain|\\IpolCorrFilter|\\IntX|\\Integer|\\InTask|\\InstanceId|\\InSpeed|\\Inside|\\InRout|\\Inpos|\\InPos|\\InPDisp|\\InMod|\\InitValue|\\InitString|\\InitCmd|\\InhibSetValue|\\Inhib|\\InEOffs|\\IndexWorst|\\Image|\\Id|\\ID|\\Icon|\\I|\\HighLevel|\\High|\\Hidden|\\Hex1|\\Hex|\\Header|\\Halt|\\GT|\\GOp'
+  OPTIONAL7: '\\GO4|\\GO3|\\GO2|\\GO1|\\GlobalSym|\\giR6rz|\\giR5ry|\\giR4rx|\\giR3z|\\giR2y|\\giR1x|\\giE6|\\giE5|\\giE4|\\giE3|\\giE2|\\giE1|\\Fwd|\\FromNonMoveTask|\\FromMoveTask|\\FromIndex|\\FricLevelMin|\\FricLevelMax|\\Free|\\Float4|\\Float|\\Flanks|\\FinePointRamp|\\FilePath|\\File|\\Fifo|\\ExtTorque|\\ExposureTime|\\Exp|\\ExeP|\\ErrRampOut|\\ErrRampIn|\\ErrorNumber|\\ErrorId|\\ErrIndSig|\\ErrIfChanged|\\ErrDO|\\EOffs|\\Econ|\\Dynamic|\\DvalueAtTimeout|\\DValue|\\DutyTimeCnt|\\DriveModule|\\DPos'
+  OPTIONAL8: '\\DoRight|\\DOPassive|\\DOp|\\DoLeft|\\DoExit|\\DODelay|\\DOBreak|\\DO|\\Dnum|\\DNeg|\\Distance|\\DiscardHeader|\\Directory|\\DipLag|\\DIPassive|\\DIBreak|\\DesiredTorque|\\Delim|\\DefinedFlag|\\DefaultIndex|\\DefaultBtn|\\DecelMax|\\Dec|\\DeadBand|\\DeactAll|\\Data|\\CtrlLang|\\CtrlId|\\CTask|\\CorrFilter|\\Corr|\\Contrast|\\Continue|\\ConstSym|\\ConfigAngle|\\ConfAngle|\\CondTime|\\Conc|\\CommTimeout|\\ClientAddress|\\Clear|\\CirPointOri|\\CheckRef|\\CharSpec|\\Char|\\CBAngle|\\CalibFrame3|\\CalibFrame2|\\BwdSpeed|\\Bwd'
+  OPTIONAL9: '\\Buttons|\\BtnArray|\\Brightness|\\BreakOff|\\BreakFlag|\\BoolVar|\\Bool|\\BlockSpec|\\Block|\\Bin|\\Before|\\BaseName|\\Base|\\AxisNumber|\\AxisNo|\\AwaitComplete|\\AsInteger|\\ASCII|\\APTR|\\Append|\\aoR6rz|\\aoR5ry|\\aoR4rx|\\aoR3z|\\aoR2y|\\aoR1x|\\AOp|\\aoE6|\\aoE5|\\aoE4|\\aoE3|\\aoE2|\\aoE1|\\AlreadyActive|\\AllTasks|\\AllMoveTasks|\\AllMotionTasks|\\aiR6rz|\\aiR5ry|\\aiR4rx|\\aiR3z|\\aiR2y|\\aiR1x|\\aiE6|\\aiE5|\\aiE4|\\aiE3|\\aiE2|\\aiE1|\\Active|\\Accuracy|\\AccMax|\\AccessTime|\\AbortValue|\\A_n|\\A_m'
 
-#Data Types
-  DataType_1_50: 'aiotrigg -|ALIAS|bool|btnres|busstate|buttondata|byte|cameradev|cameratarget|capdata|caplatrackdata|capspeeddata|captrackdata|capweavedata|cfgdomain|clock|confdata|corrdescr|datapos|dionum|dir|dnum|egmframetype|egmident|egm_minmax|egmstate|egmstopmode|errdomain|errnum|errstr|errtype|event_type|exec_level|extjoint|flypointdata|handler_type|icondata|identno|intnum|iodev|iounit_state|jointtarget|listitem|loaddata|loadidnum|loadsession|mecunit|motsetdata|num|opcalc'
-  DataType_51_100: 'opnum|orient|paridnum|paridvalidnum|pathrecid|pos|pose|processtimes|progdisp|rawbytes|restartblkdata|restartdata|rmqheader|rmqmessage|rmqslot|robjoint|robtarget|sensor|sensorstate|sensorvardata|shapedata|signalorigin|signalxx|socketdev|socketstatus|speeddata|stoppointdata|string|stringdig|supervtimeouts|switch|symnum|syncident|System|taskid|tasks|testsignal|tooldata|tpnum|trapdata|triggdata|triggios|triggiosdnum|triggmode|triggstrgo|tsp_status|tunetype|uishownum|weavestartdata|wobjdata|wzstationary|wztemporary|zonedata'
-  DataType_modifier: 'CONST|LOCAL|PERS|TASK|VAR'
-
-#Functions
-  #Listed as "Functions" in RAPID manual
-  Functions_1_50: 'Abs|AbsDnum|ACos|ACosDnum|AInput|AOutput|ArgName|ASin|ASinDnum|ATan|ATanDnum|ATan2|ATan2Dnum|BitAnd|BitAndDnum|BitCheck|BitCheckDnum|BitLSh|BitLShDnum|BitNeg|BitNegDnum|BitOr|BitOrDnum|BitRSh|BitRShDnum|BitXOr|BitXOrDnum|ByteToStr|CalcJointT|CalcRobT|CalcRotAxFrameZ|CalcRotAxisFrame|CamGetExposure|CamGetLoadedJob|CamGetName|CamNumberOfResults|CapGetFailSigs|CDate|CJointT|ClkRead|CorrRead|Cos|CosDnum|CPos|CRobT|CSpeedOverride|CTime|CTool|CWObj'
-  Functions_51_100: 'DecToHex|DefAccFrame|DefDFrame|DefFrame|Dim|DInput|Distance|DnumToNum|DnumToStr|DotProd|DOutput|EGMGetState|EulerZYX|EventType|ExecHandler|ExecLevel|Exp|FileSize|FileTimeDnum|FSSize|GetAxisDistance|GetAxisMoveTime|GetMaxNumberOfCyclicBool|GetMecUnitName|GetModalPayLoadMode|GetMotorTorque|GetNextCyclicBool|GetNextMechUnit|GetNextSym|GetNumberOfCyclicBool|GetServiceInfo|GetSignalOrigin|GetSysInfo|GetTaskName|GetTime|GetTSPStatus|GInput|GInputDnum|GOutput|GOutputDnum|HexToDec|IndInpos|IndSpeed|IOUnitState|IsBrakeCheckActive|IsCyclicBool|IsFile|IsLeadThrough|IsMechUnitActive'
-  Functions_101_150: 'IsPers|IsStopMoveAct|IsStopStateEvent|IsSyncMoveOn|IsSysId|IsVar|MaxRobSpeed|MirPos|ModExist|ModTimeDnum|MotionPlannerNo|NonMotionMode|NOrient|NumToDnum|NumToStr|Offs|OpMode|OrientZYX|ORobT|ParIdPosValid|ParIdRobValid|PathLevel|PathRecValidBwd|PathRecValidFwd|PFRestart|PoseInv|PoseMult|PoseVect|Pow|PowDnum|PPMovedInManMode|Present|ProgMemFree|PrxGetMaxRecordpos|RawBytesLen|ReadBin|ReadDir|ReadMotor|ReadNum|ReadStr|ReadStrBin|ReadVar|RelTool|RemainingRetries|RMQGetSlotName|RobName|RobOS'
-  Functions_151_209: 'Round|RoundDnum|RunMode|SafetyControllerGetChecksum|SafetyControllerGetOpModePinCode|SafetyControllerGetSWVersion|SafetyControllerGetUserChecksum|Sin|SinDnum|SocketGetStatus|SocketPeek|Sqrt|SqrtDnum|STCalcForce|STCalcTorque|STIsCalib|STIsClosed|STIsIndGun|STIsOpen|StrDigCalc|StrDigCmp|StrFind|StrLen|StrMap|StrMatch|StrMemb|StrOrder|StrPart|StrToByte|StrToVal|Tan|TanDnum|TaskRunMec|TaskRunRob|TasksInSync|TaskIsActive|TaskIsExecuting|TestAndSet|TestDI|TestSignRead|TextGet|TextTabFreeToUse|TextTabGet|TriggDataValid|Trunc|TruncDnum|Type|UIAlphaEntry|UIClientExist|UIDnumEntry|UIDnumTune|UIListView|UIMessageBox|UINumEntry|UINumTune|ValidIO|ValToStr|VectMagn'
-
-#Instructions
-  #Listed as "Instructions" in RAPID manual
-  Instructions_1_50: 'AccSet|ActEventBuffer|ActUnit|Add|AliasCamera|AliasIO|AliasIOReset|BitClear|BitSet|BookErrNo|CallByVar|CamFlush|CamGetParameter|CamGetResult|CamLoadJob|CamReqImage|CamSetExposure|CamSetParameter|CamSetProgramMode|CamSetRunMode|CamStartLoadJob|CamWaitLoadJob|CancelLoad|CapAPTrSetup|CapC|CapCondSetDO|CapEquiDist|CapL|CapLATrSetup|CapNoProcess|CapRefresh|CapWeaveSync|CheckProgRef|CirPathMode|Clear|ClearIOBuff|ClearPath|ClearRawBytes|ClkReset|ClkStart|ClkStop|Close|CloseDir|Comment|ConfJ|ConfL|ContactL'
-  Instructions_51_100: 'CopyFile|CopyRawBytes|CorrClear|CorrCon|CorrDiscon|CorrWrite|DeactEventBuffer|DeactUnit|Decr|DropSensor|DropWObj|EGMActJoint|EGMActMove|EGMActPose|EGMGetId|EGMMoveC|EGMMoveL|EGMReset|EGMRunJoint|EGMRunPose|EGMSetupAI|EGMSetupAO|EGMSetupGI|EGMSetupLTAPP|EGMSetupUC|EGMStop|EOffsOff|EOffsOn|EOffsSet|EraseModule|ErrLog|ErrRaise|ErrWrite|ExitCycle|FitCircle|FricIdInit|FricIdEvaluate|FricIdSetFricLevels|GetDataVal|GetJointData|GetSysData|GetTrapData|GripLoad|HollowWristReset|ICap|IDelete|IDisable'
-  Instructions_101_150: 'IEnable|IError|Incr|IndAMove|IndCMove|IndDMove|IndReset|IndRMove|InitSuperv|InvertDO|IOBusStart|IOBusState|IODisable|IOEnable|IPathPos|IPers|IRMQMessage|ISignalAI|ISignalAO|ISignalDI|ISignalDO|ISignalGI|ISignalGO|ISleep|ITimer|IVarValue|IWatch|Label|Load|LoadId|MakeDir|ManLoadIdProc|MatrixSolve|MatrixSolveQR|MatrixSVD|MechUnitLoad|MotionProcessModeSet|MotionSup|MoveAbsJ|MoveC|MoveCAO|MoveCDO|MoveCGO|MoveCSync|MoveExtJ|MoveJ|MoveJAO|MoveJDO|MoveJGO'
-  Instructions_151_200: 'MoveJSync|MoveL|MoveLAO|MoveLDO|MoveLGO|MoveLSync|MToolRotCalib|MToolTCPCalib|Open|OpenDir|PackDNHeader|PackRawBytes|PathAccLim|PathRecMoveBwd|PathRecMoveFwd|PathRecStart|PathRecStop|PathResol|PDispOff|PDispOn|PDispSet|ProcCall|ProcerrRecovery|PrxActivAndStoreRecord|PrxActivRecord|PrxDbgStoreRecord|PrxDeactRecord|PrxResetPos|PrxResetRecords|PrxSetPosOffset|PrxSetRecordSampleTime|PrxSetSyncalarm|PrxStartRecord|PrxStopRecord|PrxStoreRecord|PrxUseFileRecord|PulseDO|RaiseToUser|ReadAnyBin|ReadBlock|ReadCfgData|ReadErrData|ReadRawBytes|ReadVarArr|RemoveAllCyclicBool|RemoveCyclicBool|RemoveDir|RemoveFile|RemoveSuperv'
-  Instructions_201_250: 'RenameFile|Reset|ResetAxisDistance|ResetAxisMoveTime|ResetPPMoved|ResetRetryCount|RestoPath|Rewind|RMQEmptyQueue|RMQFindSlot|RMQGetMessage|RMQGetMsgData|RMQGetMsgHeader|RMQReadWait|RMQSendMessage|RMQSendWait|SafetyControllerSyncRequest|Save|SaveCfgData|SCWrite|SearchC|SearchExtJ|SearchL|SenDevice|Set|SetAllDataVal|SetAO|SetDataSearch|SetDataVal|SetDO|SetGO|SetLeadThrough|SetSysData|SetupCyclicBool|SetupSuperv|SiConnect|SiClose|SiGetCyclic|SingArea|SiSetCyclic|SkipWarn|SocketAccept|SocketBind|SocketClose|SocketConnect|SocketCreate|SocketListen|SocketReceive'
-  Instructions_251_300: 'SocketReceiveFrom|SocketSend|SocketSendTo|SoftAct|SoftDeact|SpeedLimAxis|SpeedLimCheckPoint|SpeedRefresh|SpyStart|SpyStop|StartLoad|StartMove|StartMoveRetry|STCalib|STClose|StepBwdPath|STIndGun|STIndGunReset|SToolRotCalib|SToolTCPCalib|Stop|STOpen|StopMove|StopMoveReset|StorePath|STTune|STTuneReset|SupSyncSensorOff|SupSyncSensorOn|SyncMoveOff|SyncMoveOn|SyncMoveResume|SyncMoveSuspend|SyncMoveUndo|SyncToSensor|SystemStopAction|TestSignDefine|TestSignReset|TextTabInstall|TPErase|TPReadDnum|TPReadFK|TPReadNum|TPShow|TPWrite|TriggC|TriggCheckIO|TriggDataCopy|TriggDataReset'
-  Instructions_301_357: 'TriggEquip|TriggInt|TriggIO|TriggJ|TriggL|TriggJIOs|TriggLIOs|TriggRampAO|TriggSpeed|TriggStopProc|TryInt|TuneReset|TuneServo|UIMsgBox|UIMsgWrite|UIMsgWriteAbort|UIShow|UnLoad|UnpackRawBytes|VelSet|WaitAI|WaitAO|WaitDI|WaitDO|WaitGI|WaitGO|WaitLoad|WaitRob|WaitSensor|WaitSyncTask|WaitTestAndSet|WaitTime|WaitUntil|WaitWObj|WarmStart|WorldAccLim|Write|WriteAnyBin|WriteBin|WriteBlock|WriteCfgData|WriteRawBytes|WriteStrBin|WriteVar|WriteVarArr|WZBoxDef|WZCylDef|WZDisable|WZDOSet|WZEnable|WZFree|WZHomeJointDef|WZLimJointDef|WZLimSup|WZSphDef'
 
 contexts:
   main:
@@ -366,3 +380,32 @@ contexts:
 
     - match: \b({{CONSTANT_zonedata}})\b
       scope: constant.language
+
+#================================================
+#Optional Arguements
+    - match: ({{OPTIONAL1}})
+      scope: support.function
+
+    - match: ({{OPTIONAL2}})
+      scope: support.function
+
+    - match: ({{OPTIONAL3}})
+      scope: support.function
+
+    - match: ({{OPTIONAL4}})
+      scope: support.function
+
+    - match: ({{OPTIONAL5}})
+      scope: support.function
+
+    - match: ({{OPTIONAL6}})
+      scope: support.function
+
+    - match: ({{OPTIONAL7}})
+      scope: support.function
+
+    - match: ({{OPTIONAL8}})
+      scope: support.function
+
+    - match: ({{OPTIONAL9}})
+      scope: support.function
