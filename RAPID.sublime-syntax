@@ -15,8 +15,10 @@ variables:
 #Keword
   RAPID_Control: 'AND|Break|CASE|DO|ELSE|ELSEIF|ENDFOR|ENDIF|ENDWHILE|EXIT|FOR|FROM|GOTO|IF|NOT|OR|RETURN|THEN|TO|WHILE|XOR'
   RAPID_Operator: '\=|\+|\-|\*|\/|\;|\:|\>|\<'
-  RAPID_Structure: 'ENDFUNC|ENDMODULE|ENDPROC|MODULE|' #Purposely missing FUNC and PROC as they have a separate structre
-  RAPID_Other: 'ALIAS|BACKWARD|CONNECT|DEFAULT|DIV|ENDRECORD|ENDTEST|ENDTRAP|ERROR|INOUT|MOD|NOSTEPIN|NOVIEW|RAISE|READONLY|RECORD|RETRY|STEP|SYSMODULE|TEST|TRAP|TRYNEXT|VIEWONLY|WITH'
+    #Purposely missing FUNC and PROC as they have a separate structure
+  RAPID_Structure: 'ENDFUNC|ENDMODULE|ENDPROC|MODULE|'
+    #Purposely missing TRAP in order to allow for entity.name.function setup, similar to FUNC & PROC
+  RAPID_Other: 'ALIAS|BACKWARD|CONNECT|DEFAULT|DIV|ENDRECORD|ENDTEST|ENDTRAP|ERROR|INOUT|MOD|NOSTEPIN|NOVIEW|RAISE|READONLY|RECORD|RETRY|STEP|SYSMODULE|TEST|TRYNEXT|VIEWONLY|WITH'
 
 #Instructions
   #Listed as "Instructions" in RAPID manual
@@ -169,6 +171,13 @@ contexts:
   #Other
     - match: \b({{RAPID_Other}})\b
       scope: keyword.other
+  #TRAP Structure
+    - match: \b(TRAP)\b
+      scope: keyword.other
+      push:
+        - meta_content_scope: entity.name.function
+        - match: '\n'
+          pop: true
 
 #================================================
 #Functions
