@@ -156,18 +156,12 @@ contexts:
   #Structure
     - match: \b({{RAPID_Structure}})\b
       scope: constant.language
-  #PROC Structure
-    - match: \b(PROC)\b
-      scope: constant.language
-      push:
-        - meta_content_scope: entity.name.function
-        - match: '\(|\n'
-          pop: true
-  #FUNC Structure
-    - match: '\b(FUNC)\b \b({{DataType}})\b'
+  #FUNC & PROC Structure
+    - match: '\b(PROC)\b|\b(FUNC)\b \b({{DataType}})\b'
       captures:
         1: constant.language
-        2: storage.type
+        2: constant.language
+        3: storage.type
       push:
           - meta_content_scope: entity.name.function
           - match: '\(|\n'
