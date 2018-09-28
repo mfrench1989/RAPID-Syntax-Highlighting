@@ -15,7 +15,7 @@ variables:
 #Keword
   RAPID_Control: 'AND|Break|CASE|DO|ELSE|ELSEIF|ENDFOR|ENDIF|ENDWHILE|EXIT|FOR|FROM|GOTO|IF|NOT|OR|RETURN|THEN|TO|WHILE|XOR'
   RAPID_Operator: '\=|\+|\-|\*|\/|\;|\:|\>|\<'
-  RAPID_Structure: 'ENDFUNC|ENDMODULE|ENDPROC|FUNC|MODULE|PROC'
+  RAPID_Structure: 'ENDFUNC|ENDMODULE|ENDPROC|MODULE|' #Purposely missing FUNC and PROC as they have a separate structre
   RAPID_Other: 'ALIAS|BACKWARD|CONNECT|DEFAULT|DIV|ENDRECORD|ENDTEST|ENDTRAP|ERROR|INOUT|MOD|NOSTEPIN|NOVIEW|RAISE|READONLY|RECORD|RETRY|STEP|SYSMODULE|TEST|TRAP|TRYNEXT|VIEWONLY|WITH'
 
 #Instructions
@@ -36,8 +36,7 @@ variables:
   Functions_151_209: 'Round|RoundDnum|RunMode|SafetyControllerGetChecksum|SafetyControllerGetOpModePinCode|SafetyControllerGetSWVersion|SafetyControllerGetUserChecksum|Sin|SinDnum|SocketGetStatus|SocketPeek|Sqrt|SqrtDnum|STCalcForce|STCalcTorque|STIsCalib|STIsClosed|STIsIndGun|STIsOpen|StrDigCalc|StrDigCmp|StrFind|StrLen|StrMap|StrMatch|StrMemb|StrOrder|StrPart|StrToByte|StrToVal|Tan|TanDnum|TaskRunMec|TaskRunRob|TasksInSync|TaskIsActive|TaskIsExecuting|TestAndSet|TestDI|TestSignRead|TextGet|TextTabFreeToUse|TextTabGet|TriggDataValid|Trunc|TruncDnum|Type|UIAlphaEntry|UIClientExist|UIDnumEntry|UIDnumTune|UIListView|UIMessageBox|UINumEntry|UINumTune|ValidIO|ValToStr|VectMagn'
 
 #Data Types
-  DataType_1_50: 'aiotrigg|ALIAS|bool|btnres|busstate|buttondata|byte|cameradev|cameratarget|capdata|caplatrackdata|capspeeddata|captrackdata|capweavedata|cfgdomain|clock|confdata|corrdescr|datapos|dionum|dir|dnum|egmframetype|egmident|egm_minmax|egmstate|egmstopmode|errdomain|errnum|errstr|errtype|event_type|exec_level|extjoint|flypointdata|handler_type|icondata|identno|intnum|iodev|iounit_state|jointtarget|listitem|loaddata|loadidnum|loadsession|mecunit|motsetdata|num|opcalc'
-  DataType_51_100: 'opnum|orient|paridnum|paridvalidnum|pathrecid|pos|pose|processtimes|progdisp|rawbytes|restartblkdata|restartdata|rmqheader|rmqmessage|rmqslot|robjoint|robtarget|sensor|sensorstate|sensorvardata|shapedata|signalorigin|signalai|signalao|signaldi|signaldo|signalgi|signalgo|socketdev|socketstatus|speeddata|stoppointdata|string|stringdig|supervtimeouts|switch|symnum|syncident|System|taskid|tasks|testsignal|tooldata|tpnum|trapdata|triggdata|triggios|triggiosdnum|triggmode|triggstrgo|tsp_status|tunetype|uishownum|weavestartdata|wobjdata|wzstationary|wztemporary|zonedata'
+  DataType: 'aiotrigg|bool|btnres|busstate|buttondata|byte|cameradev|cameratarget|capdata|caplatrackdata|capspeeddata|captrackdata|capweavedata|cfgdomain|clock|confdata|corrdescr|datapos|dionum|dir|dnum|egmframetype|egmident|egm_minmax|egmstate|egmstopmode|errdomain|errnum|errstr|errtype|event_type|exec_level|extjoint|flypointdata|handler_type|icondata|identno|intnum|iodev|iounit_state|jointtarget|listitem|loaddata|loadidnum|loadsession|mecunit|motsetdata|num|opcalc|opnum|orient|paridnum|paridvalidnum|pathrecid|pos|pose|processtimes|progdisp|rawbytes|restartblkdata|restartdata|rmqheader|rmqmessage|rmqslot|robjoint|robtarget|sensor|sensorstate|sensorvardata|shapedata|signalorigin|signalai|signalao|signaldi|signaldo|signalgi|signalgo|socketdev|socketstatus|speeddata|stoppointdata|string|stringdig|supervtimeouts|switch|symnum|syncident|System|taskid|tasks|testsignal|tooldata|tpnum|trapdata|triggdata|triggios|triggiosdnum|triggmode|triggstrgo|tsp_status|tunetype|uishownum|weavestartdata|wobjdata|wzstationary|wztemporary|zonedata'
   DataType_modifier: 'CONST|LOCAL|PERS|TASK|VAR'
 
 #Predefined Constants
@@ -157,6 +156,22 @@ contexts:
   #Structure
     - match: \b({{RAPID_Structure}})\b
       scope: constant.language
+  #PROC Structure
+    - match: \b(PROC)\b
+      scope: constant.language
+      push:
+        - meta_content_scope: entity.name.function
+        - match: '\(|\n'
+          pop: true
+  #FUNC Structure
+    - match: '\b(FUNC)\b \b({{DataType}})\b'
+      captures:
+        1: constant.language
+        2: storage.type
+      push:
+          - meta_content_scope: entity.name.function
+          - match: '\(|\n'
+            pop: true
   #Other
     - match: \b({{RAPID_Other}})\b
       scope: keyword.other
@@ -200,12 +215,8 @@ contexts:
 
 #================================================
 #Data Types
-    - match: \b({{DataType_1_50}})\b
+    - match: \b({{DataType}})\b
       scope: storage.type
-
-    - match: \b({{DataType_51_100}})\b
-      scope: storage.type
-
 #================================================
 #Data Type Modifiers
     - match: \b({{DataType_modifier}})\b
