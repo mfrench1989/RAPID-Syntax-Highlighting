@@ -5,20 +5,21 @@ This was made using the "RAPID - Technical Reference Manual" for RobotWare 6.06 
 
 ## Installation Methods
 1. Package Control  
-  i. See http://wbond.net/sublime_packages/package_control/installation
-    a. Once package control has been installed, bring up the command palette (cmd+shift+P or ctrl+shift+P)
-    b. Type Install and select "Package Control: Install Package"
-    c. Select RAPID Syntax Highlighting from the list. Package Control will keep it automatically updated for you.
-2. Manual Install
-  i. Download
-    a. Unzip and copy RAPID.sublime-syntax into your sublime package directory
-  ii. Clone
-    a. Select your sublime package directory as your local repository or have separate
+  i. See http://wbond.net/sublime_packages/package_control/installation  
+  ii. Once package control has been installed, bring up the command palette (cmd+shift+P or ctrl+shift+P)  
+  iii. Type Install and select "Package Control: Install Package"  
+  iv. Select RAPID Syntax Highlighting from the list. Package Control will keep it automatically updated for you.  
+
+2. Manual Download  
+  i. Unzip and copy RAPID.sublime-syntax into your sublime package directory  
+
+3. Clone  
+  i. Select your sublime package directory as your local repository or have separate  
 
 ## Sublime Text 3 Package Directory
-1. Open Sublime
-2. On the menu bar: Packages > Browse Packages...
-3. Open User Folder
+1. Open Sublime  
+2. On the menu bar: Packages > Browse Packages...  
+3. Open User Folder  
   i. User folder is going to be where you'd want to install RAPID Syntax Highlighting
   
 ## Usage
