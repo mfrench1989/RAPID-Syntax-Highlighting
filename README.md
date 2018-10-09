@@ -1,7 +1,7 @@
 ## Description
 RAPID Syntax Highlighting for Sublime Text 3
 
-This was made using the "RAPID - Technical Reference Manual" for RobotWare 6.06 Revision F from ABB.
+This was made using the "RAPID - Technical Reference Manual" for RobotWare 6.07 Revision G from ABB.
 
 ## Installation Methods
 1. Package Control  
