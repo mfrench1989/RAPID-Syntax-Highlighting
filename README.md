@@ -1,10 +1,11 @@
 ## Description
 RAPID Syntax Highlighting for Sublime Text 3
 
-This was made using the "RAPID - Technical Reference Manual" for RobotWare 6.07 Revision G from ABB.
+This was made using the "Technical Reference Manual - RAPID Instructions, Functions, and Datatypes" from ABB.
+The syntax highlighting has been updated to RobotWare 6.07, Revision G.
 
 ## Installation Methods
-1. Package Control  
+1. Package Control (Approval Pending)  
   i. See http://wbond.net/sublime_packages/package_control/installation  
   ii. Once package control has been installed, bring up the command palette (cmd+shift+P or ctrl+shift+P)  
   iii. Type Install and select "Package Control: Install Package"  
@@ -28,3 +29,5 @@ Sublime should auto-apply the syntax highlighting to all .mod or .sys files.
 You can use 'ctrl+r' or 'cmd+r' to view and quickly navigate to any FUNC or PROC you make.
 
 Hovering over a user defined functions will also allow you to navigate to the file they are defined in IF the folder is opened through Sublime.
+
+Brackets, parenthesis, braces, and quotes should auto-create their closing pair.
