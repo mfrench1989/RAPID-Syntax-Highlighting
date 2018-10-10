@@ -18,7 +18,7 @@ The syntax highlighting has been updated to RobotWare 6.07, Revision G.
   i. Select your sublime package directory as your local repository or have separate  
 
 ## Sublime Text 3 Package Directory
-1. Open Sublime  
+1. Open Sublime Text  
 2. On the menu bar: Packages > Browse Packages...  
 3. Open User Folder  
   i. User folder is going to be where you'd want to install RAPID Syntax Highlighting
