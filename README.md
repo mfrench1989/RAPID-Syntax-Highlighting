@@ -5,7 +5,7 @@ This was made using the "Technical Reference Manual - RAPID Instructions, Functi
 The syntax highlighting has been updated to RobotWare 6.07, Revision G.
 
 ## Installation Methods
-1. Package Control (Approval Pending)  
+1. Package Control  
   i. See http://wbond.net/sublime_packages/package_control/installation  
   ii. Once package control has been installed, bring up the command palette (cmd+shift+P or ctrl+shift+P)  
   iii. Type Install and select "Package Control: Install Package"  
